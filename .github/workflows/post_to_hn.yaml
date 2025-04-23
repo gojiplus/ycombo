@@ -29,4 +29,4 @@ jobs:
           GITHUB_ORGS: appeler,recite,gojiplus              # ← comma-separated orgs
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HN_USER_COOKIE: ${{ secrets.HN_USER_COOKIE }}
-        run: python scripts/post_repo_to_hn.py
+        run: python post_to_hn.py
