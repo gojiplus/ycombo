@@ -1,6 +1,6 @@
 name: 'Post Random GitHub Repo to Hacker News'
 description: >
-  Picks a random public GitHub repository (from your user or orgs) and posts it to Hacker News via `news.ycombinator.com/submit` using a session cookie.
+  Picks a random public GitHub repository (from your user or orgs) and posts it to Hacker News.
 author: 'you'
 inputs:
   github-username:
