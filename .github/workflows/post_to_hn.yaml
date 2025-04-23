@@ -1,0 +1,32 @@
+name: 🚀 Post Random Repo to Hacker News
+
+on:
+  schedule:
+    - cron: "0 17 * * 1"  # Every Monday at 17:00 UTC
+  workflow_dispatch:
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4 playwright
+          playwright install --with-deps
+
+      - name: Post to Hacker News
+        env:
+          GITHUB_USERNAME: soodoku                          # ← change as needed
+          GITHUB_ORGS: appeler,recite,gojiplus              # ← comma-separated orgs
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HN_USER_COOKIE: ${{ secrets.HN_USER_COOKIE }}
+        run: python scripts/post_repo_to_hn.py
