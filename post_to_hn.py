@@ -34,7 +34,7 @@ def pick_repo():
 def make_title(repo):
     name = repo["name"]
     desc = repo.get("description") or "An open-source tool."
-    return f"Show HN: {name} - {desc[:200]}"
+    return f"{name} - {desc[:200]}"
 
 # --- Step 3: Post via Playwright ---
 def post_to_hn(title, url):
