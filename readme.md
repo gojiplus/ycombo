@@ -1,4 +1,4 @@
-# 🚀 ycombo: Post Random GitHub Repo to Hacker News
+# 🚀 ycombo: Post a Random GitHub Repo. to Hacker News
 
 This GitHub Action picks a random public repo from your GitHub profile (or orgs) and submits it to [Hacker News](https://news.ycombinator.com/submit) via a headless browser using your session cookie.
 
