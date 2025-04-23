@@ -26,7 +26,7 @@ jobs:
       - name: Post to Hacker News
         env:
           GITHUB_USERNAME: soodoku                          # ← change as needed
-          GITHUB_ORGS: appeler,recite,gojiplus              # ← comma-separated orgs
+          GITHUB_ORGS: appeler,recite,gojiplus,themains,in-rolls,outside-edge,matmulai              # ← comma-separated orgs
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HN_USER_COOKIE: ${{ secrets.HN_USER_COOKIE }}
         run: python post_to_hn.py
