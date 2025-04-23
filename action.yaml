@@ -1,0 +1,35 @@
+name: 'Post Random GitHub Repo to Hacker News'
+description: >
+  Picks a random public GitHub repository (from your user or orgs) and posts it to Hacker News via `news.ycombinator.com/submit` using a session cookie.
+author: 'you'
+inputs:
+  github-username:
+    description: 'Your GitHub username'
+    required: true
+  github-orgs:
+    description: 'Comma-separated GitHub orgs to pull from'
+    required: false
+  hn-cookie:
+    description: 'Your Hacker News `user` session cookie'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        pip install requests beautifulsoup4 playwright
+        playwright install --with-deps
+      shell: bash
+
+    - name: Post to Hacker News
+      env:
+        GITHUB_USERNAME: ${{ inputs.github-username }}
+        GITHUB_ORGS: ${{ inputs.github-orgs }}
+        HN_USER_COOKIE: ${{ inputs.hn-cookie }}
+      run: python scripts/post_repo_to_hn.py
+      shell: bash
