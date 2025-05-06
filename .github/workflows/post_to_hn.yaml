@@ -2,7 +2,7 @@ name: 🚀 Post Random Repo to Hacker News
 
 on:
   schedule:
-    - cron: "0 17 * * 1"  # Every Monday at 17:00 UTC
+    - cron: "0 14 * * *"
   workflow_dispatch:
 
 jobs:
